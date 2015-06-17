@@ -1,0 +1,14 @@
+{
+  "name": "MiniStore_Angular",
+  "version": "0.0.1",
+  "private": false,
+  "description": "A miniStore built in Angular and Express",
+  "scripts": {
+    "start": "node server"
+  },
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "express": "~4.12.3",
+    "mongoose": "^4.0.1"
+  }
+}

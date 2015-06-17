@@ -1,0 +1,49 @@
+	<div class="container" ng-controller='CustomersController'>
+		<div class="row">
+			<div class="col-md-6">
+				<h1>Add a new customer</h1>
+				<form>
+				  <div class="form-group">
+				    <label for="name">Customer Name</label>
+				    <input type="text" class="form-control" id="name" placeholder="Enter Full Name" ng-model="newCustomer.name">
+				  </div>
+				  <input type="submit" class="btn btn-info" value="Add" ng-click="addCustomer()">
+				</form><br>
+				<span ng-bind="error"></span>
+			</div>
+		</div>
+		<br>
+
+		<div class="row">
+			<div class="col-md-3 pull-right">
+				<form>
+				  <div class="form-group">
+				    <input type="text" class="form-control" id="search" placeholder="Search a name.." ng-model="filter_name">
+				  </div>
+				</form>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Customer Name</th>
+							<th>Created Date</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="customer in customers | filter:filter_name | orderBy:'created_at'">
+							<td><span ng-bind="customer.name"></span></td>
+							<td><span ng-bind="customer.created_at | date: 'fullDate'"></span></td>
+							<td>
+								<button class="btn btn-danger" ng-click="removeCustomer(customer)">Remove</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
